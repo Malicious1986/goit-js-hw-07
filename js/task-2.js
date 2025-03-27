@@ -27,14 +27,18 @@ const images = [
 
 const gallery = document.querySelector(".gallery");
 if (gallery) {
-  images.forEach(({ url, alt }) => {
-    const li = document.createElement("li");
-    const imageElement = document.createElement("img");
-    imageElement.src = url;
-    imageElement.alt = alt;
-    imageElement.width = 360;
-    li.appendChild(imageElement);
+  const elements = images
+    .map(({ url, alt }) => {
+      const li = document.createElement("li");
+      const img = document.createElement("img");
 
-    gallery.append(li);
-  });
+      img.src = url;
+      img.alt = alt;
+      img.width = 360;
+
+      li.appendChild(img);
+      return li.innerHTML;
+    })
+    .join("");
+  gallery.innerHTML = elements;
 }
