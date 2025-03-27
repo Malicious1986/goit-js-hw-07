@@ -37,7 +37,7 @@ if (gallery) {
       img.width = 360;
 
       li.appendChild(img);
-      return li.innerHTML;
+      return li.outerHTML;
     })
     .join("");
   gallery.innerHTML = elements;
